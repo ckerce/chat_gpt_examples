@@ -8,4 +8,4 @@ One agent chooses a path, and the other agents follow along using a virtual forc
 
 
 
-![One agent leading nine others](./follow_the_leader.avi)
+![One agent leading nine others](./follow_the_leader.gif)
