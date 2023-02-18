@@ -1,3 +1,27 @@
+'''
+The following was the initial ChatGPT prompt I used to generate the following code.  It was actually a mess, and chatGPT changed streams mid-composition:
+
+Generate a stubbed out python program using numpy. Include function definitions, but not the internal code that implements the functions.  Instead just return 0.  The program should include a full main call using the "if _name_ == _main_" construction, and the main program should be complete.  The purpose of this program is to simulates N-body dynamics using the following pairwise force laws for pairwise spring, transverse velocity dampening, and velocity dampening:
+fpw(x,y) = espilon_x_y * b * (norm(x-y) - D) * (y-x)/norm(x-y).  
+ftv(x,y,vx) = - gamma_t * ( vx - dot(vx, (y-x)/norm(y-x))*(y-x)/norm(y-x) )
+fvd(vx) = - gamma * vx
+The variables x, y, and vx are vectors.  The variables gamma, gamma_t, b and D are scalars that are the same for all pairs of particles. The variable epsilon_x_y is a scalar variable that masks whether or not x should be influenced through a force from y.  The variables x and y represent the positions of particles, and the variable vx represents the velocity of the particle with position x.  
+For coding conventions, make sure to use function definitions where it makes reading the code most efficient.  Also make sure to include a main function.  Document the code clearly and thoroughly.
+
+PROMPT_2:Can you create the code for the fpw function so that it is compabible with simulate_n_body_dynamics?
+
+PROMPT_3:Can you create the code for the ftv function so that it is compabible with simulate_n_body_dynamics?
+
+PROMPT_4:Can you create the code for the fvd function so that it is compabible with simulate_n_body_dynamics?
+
+PROMPT_5:Can you create the "if __name__ == '__main__':" code so that it runs the simulation of positions and velocities?  Use all the functions defined above, do not re-create them unless needed.  The position of each particle should be two dimensional, as should the velocity.  There should be 10 particles. 
+
+NOTE:  Everything was going great until PROMPT_5, and then it changed it's style completely.  The code worked, except for the following:
+    The intended asymmetric relationship of epsilon_x_y was not respected, as it included the y_x force, as well.
+NOTE:  I put in most of the plotting commands, although it did put in one useless one.
+'''
+
+
 import numpy as np
 from matplotlib import pyplot as plt
 
