@@ -63,7 +63,7 @@ gamma = 3.
 gamma_t = 0.1
 b = 1
 D = 1 
-epsilon = np.random.choice([0, 1], size=(N, N))
+#epsilon = np.random.choice([0, 1], size=(N, N))
 epsilon = np.zeros((N,N))
 epsilon[:-1, 1:] = np.identity(N - 1)
 np.fill_diagonal(epsilon, 0)
