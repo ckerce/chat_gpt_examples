@@ -105,13 +105,20 @@ X = np.array(X)
 V = np.array(V)
 # Plot final positions
 plt.ion()
+plt.title('Initial Agent Positions')
+plt.scatter(X[0,:,0], X[0,:,1])
+plt.grid()
+
+plt.figure()
+plt.title('Final Agent Positions')
 plt.scatter(x[:, 0], x[:, 1])
-plt.show()
+plt.grid()
 
 
 plt.figure()
+plt.title('History of Agent Positions (with y-offset to show trends)')
 for k in range(0,5001,100):
     plt.plot(X[k,:,0], X[k,:,1] + k)
     for idx in range(N):
-        plt.plot( X[k,idx,0], X[k,idx,1] + k,'+')
-
+        plt.plot( X[k,idx,0], X[k,idx,1] + k,'b+')
+plt.grid()
