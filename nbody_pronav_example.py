@@ -5,7 +5,7 @@ with the following prompt:
 PROMPT_1: How would you modify the following code to implement proportional 
 navigation as a control law, instead of the current force calculation?
 
-The code was not commented, so I continued with:
+The resulting code was not commented, so I continued with:
 
 PROMPT_2: Can you type the python code comments that clarify each 
 function's intent, the input values, and any return values?
