@@ -3,6 +3,19 @@ import pdb
 from matplotlib import pyplot as plt
 
 def transverse_velocity_dampening(x, y, vx, gamma_t):
+    """
+    Calculates the transverse velocity dampening force vector between 
+    particles i (at position x) and j (at position y).
+
+    Arguments:
+    x -- a numpy array representing the position of particle i 
+    y -- a numpy array representing the position of particle j
+    vx -- a numpy array representing the velocity of particle i
+    gamma_t -- a scalar value representing the dampening coefficient
+
+    Returns:
+    A numpy array representing the transverse velocity dampening force vector between particles i and j.
+    """
     r = y - x
     r_norm = np.linalg.norm(r)
     if r_norm == 0:
@@ -11,10 +24,33 @@ def transverse_velocity_dampening(x, y, vx, gamma_t):
     return -gamma_t * (vx - v_parallel)
 
 def velocity_dampening(vx, gamma):
+    """
+    Calculates the velocity dampening force vector for particle i.
+
+    Arguments:
+    vx -- a numpy array representing the velocity of particle i
+    gamma -- a scalar value representing the dampening coefficient
+
+    Returns:
+    A numpy array representing the velocity dampening force vector for particle i.
+    """
     return -gamma * vx
 
 
 def proportional_navigation(x, y, v, alpha, beta):
+    """
+    Calculates the proportional navigation force vector for particle i (at position x).
+
+    Arguments:
+    x -- a numpy array representing the position of particle i 
+    y -- a numpy array representing the position of particle j 
+    v -- a numpy array representing the velocity of particle i
+    alpha -- a scalar value representing the proportionality constant
+    beta -- a scalar value representing the relative weight of the navigation versus the pure pursuit
+
+    Returns:
+    A numpy array representing the proportional navigation force vector for particle i.
+    """
     r = y - x
     r_norm = np.linalg.norm(r)
     if r_norm == 0:
@@ -25,6 +61,18 @@ def proportional_navigation(x, y, v, alpha, beta):
     return alpha * np.linalg.norm(v) * s + beta * r_hat
 
 def desired_position(x,v,D):
+    """
+    Calculates the desired position for particle i.
+
+    Arguments:
+    x -- a numpy array representing the position of particle i
+    v -- a numpy array representing the velocity of particle i
+    D -- a scalar value representing the desired separation distance between particles i and j
+
+    Returns:
+    A numpy array representing the desired position for particle i.
+    """
+
     v_norm =  np.linalg.norm(v)
     if v_norm > 0:
        v_hat = v / np.linalg.norm(v)
@@ -33,6 +81,10 @@ def desired_position(x,v,D):
     return x - D * v_hat
 
 def make_movie():
+    """
+    Creates a sequence of plots for a particle simulation and saves them as jpg files.
+    """
+
     count = 0
     for k in range(0,5001,25):
         plt.figure()
@@ -83,7 +135,6 @@ for step in range(timesteps):
                 x_desired = desired_position(x[j], v[j], D)
                 F[i] += proportional_navigation(x[i], x_desired, v[i], alpha, beta)
                 F[i] += transverse_velocity_dampening(x[i], x[j], v[i], gamma_t)
-                #pdb.set_trace()
     for i in range(N-1):
         F[i] += velocity_dampening(v[i], gamma)
 
