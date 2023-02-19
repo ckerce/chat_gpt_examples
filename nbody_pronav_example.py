@@ -101,7 +101,8 @@ def make_movie():
     count = 0
     for k in range(0,5001,25):
         plt.figure()
-        plt.plot(X[k,:,0], X[k,:,1],'-+')
+        plt.scatter(X[k,0:9, 0], X[k, 0:9, 1], marker='o')
+        plt.scatter(X[k,9, 0], X[k, 9, 1], marker='>')
         plt.ylim(-1.1,1.1)
         plt.xlim(-1, 60)
         plt.grid()
