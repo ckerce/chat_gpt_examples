@@ -8,7 +8,7 @@ The [nbody_example.py](nbody_example.py) Python program simulates N-body dynamic
 The initial prompt used to generate this code is as follows, as well as in the source file:
 <blockquote>
 Generate a stubbed out python program using numpy. Include function definitions, but not the internal code that implements the functions.  Instead just return 0.  The program should include a full main call using the "if __name__ == __main__" construction, and the main program should be complete.  
-<br/>
+<br/><br/>
 The purpose of this program is to simulates N-body dynamics using the following pairwise force laws for pairwise spring, transverse velocity dampening, and velocity dampening:
   
   fpw(x,y) = espilon_x_y * b * (norm(x-y) - D) * (y-x)/norm(x-y).  
