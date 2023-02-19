@@ -1,3 +1,16 @@
+'''
+After entering the code from nbocy_example.py into ChatGPT I continued 
+with the following prompt:
+
+PROMPT_1: How would you modify the following code to implement proportional 
+navigation as a control law, instead of the current force calculation?
+
+The code was not commented, so I continued with:
+
+PROMPT_2: Can you type the python code comments that clarify each 
+function's intent, the input values, and any return values?
+'''
+
 import numpy as np
 import pdb
 from matplotlib import pyplot as plt
@@ -133,6 +146,8 @@ for step in range(timesteps):
         for j in range(i, N):
             if epsilon[i, j]:
                 x_desired = desired_position(x[j], v[j], D)
+                #if j < N-1:
+                #    x_desired = 0.5*x_desired + 0.5*desired_position(x[j+1], v[j+1], 2*D)
                 F[i] += proportional_navigation(x[i], x_desired, v[i], alpha, beta)
                 F[i] += transverse_velocity_dampening(x[i], x[j], v[i], gamma_t)
     for i in range(N-1):
