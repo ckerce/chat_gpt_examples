@@ -14,6 +14,6 @@ The program uses the NumPy library to perform vectorized calculations, which all
 ![One agent leading nine others](./follow_the_leader.gif)
 
 # Proportional Navigation for the <br> N-Agent "follow the leader" control law.
-Starting from the previous example, the virtual force in [nbocy_pronav_example.py](nbody_pronav_example.py) positions each agent into a specified relative position behind the agent they are following using **proportional navigation** instead of a virtual **Hooke's Law**.  If an agent with coordinates x (agent_x) is following an agent with coordiantes y and velocity vy, then the virtual position that agent_x attemps to achieve at that moment is y - D * vy/norm(vy).  The parameter D is the intended follow distance.
+Starting from the previous example, the virtual force in [nbody_pronav_example.py](nbody_pronav_example.py) positions each agent into a specified relative position behind the agent they are following using **proportional navigation** instead of a virtual **Hooke's Law**.  If an agent with coordinates x (agent_x) is following an agent with coordiantes y and velocity vy, then the virtual position that agent_x attemps to achieve at that moment is y - D * vy/norm(vy).  The parameter D is the intended follow distance.
 
 ![One agent leading nine others](./pronav_follow_the_leader.gif)
