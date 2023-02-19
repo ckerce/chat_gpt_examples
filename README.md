@@ -11,11 +11,9 @@ Generate a stubbed out python program using numpy. Include function definitions,
 <br/><br/>
 The purpose of this program is to simulates N-body dynamics using the following pairwise force laws for pairwise spring, transverse velocity dampening, and velocity dampening:
   
-  fpw(x,y) = espilon_x_y * b * (norm(x-y) - D) * (y-x)/norm(x-y).  
-
-  ftv(x,y,vx) = - gamma_t * ( vx - dot(vx, (y-x)/norm(y-x))*(y-x)/norm(y-x) )
-
-  fvd(vx) = - gamma * vx
+  &nbsp;&nbsp;&nbsp;fpw(x,y) = espilon_x_y * b * (norm(x-y) - D) * (y-x)/norm(x-y).  
+  &nbsp;&nbsp;&nbsp;ftv(x,y,vx) = - gamma_t * ( vx - dot(vx, (y-x)/norm(y-x))*(y-x)/norm(y-x) )
+  &nbsp;&nbsp;&nbsp;fvd(vx) = - gamma * vx
 
 The variables x, y, and vx are vectors.  The variables gamma, gamma_t, b and D are scalars that are the same for all pairs of particles. The variable 
 epsilon_x_y is a scalar variable that masks whether or not x should be influenced through a force from y.  The variables x and y represent the 
