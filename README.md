@@ -10,3 +10,8 @@ The main function of the example program uses the three force calculation functi
 The program uses the NumPy library to perform vectorized calculations, which allows for faster and more efficient computation. The code is structured using function definitions and clear documentation to improve readability and maintainability. The program also includes an if statement to allow it to be imported as a module or run as a standalone script.
 
 ![One agent leading nine others](./follow_the_leader.gif)
+
+# Using Proportional Navigation for N-Agent "follow the leader" control law.
+This is the same as before, except that a virtual force is created to position each agent into a specified relative position behind the agent they are following.  If an agent with coordinates x (agent_x) is following an agent with coordiantes y and velocity vy, then the virtual position that agent_x attemps to achieve at that moment is y - D * vy/norm(vy).  The parameter D is the intended follow distance.
+
+![One agent leading nine others](./pronav_follow_the_leader.gif)
