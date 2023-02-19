@@ -1,6 +1,6 @@
 '''
 The following was the initial ChatGPT prompt I used to generate the following code.  
-It was actually a mess, and chatGPT changed streams mid-composition:
+It was actually a mess, and chatGPT changed naming convention and style mid-composition:
 
 PROMPT_1: Generate a stubbed out python program using numpy. Include function 
 definitions, but not the internal code that implements the functions.  
