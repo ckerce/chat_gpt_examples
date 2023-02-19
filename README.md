@@ -1,6 +1,6 @@
 # chat_gpt_examples
 
-Like everyone else in the world, I've been looking at how ChatGPT can both simplify my coding life and help me communicate coding concepts more qickly to my colleagues.
+Like everyone else in the world, I've been looking at how ChatGPT can both simplify my coding life and help me communicate coding concepts more qickly to my colleagues.  I'll post examples here, as they seem interesting to communicate a point.
 
 # N-Agent "follow the leader" control law.
 As ChatGPT helped to summarize, the **nbody_example.py** Python program simulates N-body dynamics using the pairwise virtual force laws based on velocity dampening, transverse velocity dampening, and a directed version of Hooke's law. The lead agent (N'th agent) is prescribed a path, and the other agents follow along using a virtual force law between each successive pair of agents.  Note that the force law is forward looking in the sense that the connectivity graph does not have loops.  It is well known that such loops lead to feedback oscillations.
