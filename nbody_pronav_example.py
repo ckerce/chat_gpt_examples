@@ -115,9 +115,9 @@ def make_movie():
 N = 10
 alpha = 2.
 beta = 4.
-D = 1.
-gamma = 2.5
-gamma_t = 5.
+D = 1.       # Was present in original code, but included by ChatGPT.
+gamma = 2.5  # Was present in original code, but included by ChatGPT.
+gamma_t = 5. # Was present in original code, but included by ChatGPT.
 
 # Section: Inter-agent coupling mask
 epsilon = np.zeros((N,N))
@@ -146,12 +146,10 @@ for step in range(timesteps):
         for j in range(i, N):
             if epsilon[i, j]:
                 x_desired = desired_position(x[j], v[j], D)
-                #if j < N-1:
-                #    x_desired = 0.5*x_desired + 0.5*desired_position(x[j+1], v[j+1], 2*D)
-                F[i] += proportional_navigation(x[i], x_desired, v[i], alpha, beta)
-                F[i] += transverse_velocity_dampening(x[i], x[j], v[i], gamma_t)
-    for i in range(N-1):
-        F[i] += velocity_dampening(v[i], gamma)
+                F[i] += proportional_navigation(x[i], x_desired, v[i], alpha, beta)     # I had to manually copy the following lines from the original 
+                F[i] += transverse_velocity_dampening(x[i], x[j], v[i], gamma_t)        # Was present in original code, but included by ChatGPT.
+    for i in range(N-1):                                                                # Was present in original code, but included by ChatGPT.
+        F[i] += velocity_dampening(v[i], gamma)                                         # Was present in original code, but included by ChatGPT.
 
     # Update positions and velocities
     x += v * dt + 0.5 * F * dt**2
