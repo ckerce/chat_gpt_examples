@@ -1,4 +1,4 @@
-# chat_gpt_examples
+# Chat GPT Examples
 
 Like everyone else in the world, I've been looking at how ChatGPT can both simplify my coding life and help me communicate coding concepts more qickly to my colleagues.  I'll post examples here as they seem relevant to communicating a point.
 
