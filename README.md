@@ -5,7 +5,7 @@ Like everyone else in the world, I've been looking at how ChatGPT can both simpl
 # N-Agent "follow the leader" control law.
 The [nbody_example.py](nbody_example.py) Python program simulates N-body dynamics using a pairwise virtual force law based on velocity dampening, transverse velocity dampening, and a directed version of Hooke's law. This control law is designed to simulate a group of agents, where the lead agent (Nth agent) follows a prescribed path, and the other agents follow along using a virtual force law between each successive pair of agents. <br/>
 
-The initial prompt used to generate this code was not iteratively prompt engineered, but includes a number of descriptive and guiding strategies. The code is as follows, and is also included in the source file:
+The initial prompt used to generate this code was not iteratively prompt engineered, but includes a number of descriptive and guiding strategies. The initial prompt is as follows, and is also included in the source file:
 <blockquote>
 Generate a stubbed out python program using numpy. Include function definitions, but not the internal code that implements the functions.  Instead just return 0.  The program should include a full main call using the "if __name__ == __main__" construction, and the main program should be complete.  
 <br/><br/>
