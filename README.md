@@ -3,6 +3,10 @@
 Like everyone else in the world, I've been looking at how ChatGPT can both simplify my coding life and help me communicate concepts more qickly to my friends and colleagues.  I'll post examples here as they seem relevant to communicating a point.
 
 # N-Agent "follow the leader" control law.
+Run this example with the command
+```python
+python nbody_example.py
+```
 The [nbody_example.py](nbody_example.py) Python program simulates N-body dynamics using a pairwise virtual force law based on velocity dampening, transverse velocity dampening, and a directed version of Hooke's law. This control law is designed to simulate a group of agents, where the lead agent (Nth agent) follows a prescribed path, and the other agents follow along using a virtual force law between each successive pair of agents. <br/>
 
 The initial prompt used to generate this code was not interactively optimized through prompt engineering, but it does include a number of prompt engineering strategies.  Details are given as to the definitions of functions and the intent of the program; additionally, it uses the strategy of initially only creating function interface definitions and then using follow-up propts to generate the implementation code for stubbed-out sections. The initial prompt is as follows, and is also included in the source file:
@@ -33,6 +37,10 @@ The program uses the NumPy library to perform vectorized calculations, which all
 ![One agent leading nine others](./follow_the_leader.gif)
 
 # Proportional Navigation for the <br> N-Agent "follow the leader" control law.
+Run this example with the command
+```python
+python nbody_pronav_example.py
+```
 In the [nbody_pronav_example.py](nbody_pronav_example.py) program, we modify the virtual force law used in the previous example to use **proportional navigation**. Proportional navigation is a guidance law commonly used in missile intercept systems. The guidance law is based on the principle of parallel navigation, which states that an interceptor must fly a path that is parallel to the path of the target, but with a time delay.
 
 In our case, we use proportional navigation to position each agent into a specified relative position behind the agent they are following. If an agent with coordinates **x** is following an agent with coordinates **y** and velocity **vy**, then the virtual position that agent **x** attempts to achieve at that moment is **y - D * vy/norm(vy)**, where **D** is the intended follow distance.
